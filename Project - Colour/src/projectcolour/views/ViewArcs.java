@@ -13,42 +13,43 @@ import projectcolour.util.UtilContentPane;
 public class ViewArcs extends JPanel {
 
 	static double r = 1;
-	static int x = 0;
-	static int y;
+	static int x = 300;
+	
+	static int x1 = 100;
+	static int x2 = 200;
+	static int x3 = 300;
+	static int x4 = 400;
+	static int x5 = 500;
 
 	public void render(Graphics2D render){
 		
 		super.paintComponent(render);
+		Graphics2D transformRender = (Graphics2D) render.create();
 		
-		render.setStroke(new BasicStroke(5));
-		render.rotate(Math.toRadians(r), ((UtilContentPane.getWidth() / 2) - (x / 2)) + x / 2, ((UtilContentPane.getHeight() / 2) - (x / 2)) + x / 2);
+		transformRender.setStroke(new BasicStroke(15));
+		transformRender.rotate(Math.toRadians(r), ((UtilContentPane.getWidth() / 2) - (x / 2)) + x / 2, ((UtilContentPane.getHeight() / 2) - (x / 2)) + x / 2);
 
-		render.setColor(Color.ORANGE);
-		render.drawArc((UtilContentPane.getWidth() / 2) - (x / 2), (UtilContentPane.getHeight() / 2) - (x / 2), x, x, 0, 90);
-
-		render.setColor(Color.RED);
-		render.drawArc((UtilContentPane.getWidth() / 2) - (x / 2), (UtilContentPane.getHeight() / 2) - (x / 2), x, x, 90, 90);
-
-		render.setColor(Color.BLUE);
-		render.drawArc((UtilContentPane.getWidth() / 2) - (x / 2), (UtilContentPane.getHeight() / 2) - (x / 2), x, x, 180, 90);
-
-		render.setColor(Color.GREEN);
-		render.drawArc((UtilContentPane.getWidth() / 2) - (x / 2), (UtilContentPane.getHeight() / 2) - (x / 2), x, x, 270, 90);
-
-		if(y == 600){
-			y = 0;
-			x = 0;
-		}
-		if(x != 0)
-			r += x * 0.1;
-		if(Math.toRadians(r) > 360)
+		transformRender.setColor(Color.ORANGE);
+		transformRender.drawArc((UtilContentPane.getWidth() / 2) - (x1 / 2), (UtilContentPane.getHeight() / 2) - (x1 / 2), x1, x1, 0, 90);
+		
+		transformRender.setColor(Color.RED);
+		transformRender.drawArc((UtilContentPane.getWidth() / 2) - (x2 / 2), (UtilContentPane.getHeight() / 2) - (x2 / 2), x2, x2, 0, 180);
+		
+		transformRender.setColor(Color.BLUE);
+		transformRender.drawArc((UtilContentPane.getWidth() / 2) - (x3 / 2), (UtilContentPane.getHeight() / 2) - (x3 / 2), x3, x3, 90, 270);
+		
+		transformRender.setColor(Color.YELLOW);
+		transformRender.drawArc((UtilContentPane.getWidth() / 2) - (x4 / 2), (UtilContentPane.getHeight() / 2) - (x4 / 2), x4, x4, 180, 270);
+		
+		transformRender.setColor(Color.GREEN);
+		transformRender.drawArc((UtilContentPane.getWidth() / 2) - (x5 / 2), (UtilContentPane.getHeight() / 2) - (x5 / 2), x5, x5, 0, 270);
+		
+		if(r >= 360)
 			r = 0;
-		if(y > 301)
-			x--;
-		if(y < 300)
-			x++;
-
-		y++;
+		
+		r++;
+		
+		transformRender.dispose();
 		
 	}
 }
