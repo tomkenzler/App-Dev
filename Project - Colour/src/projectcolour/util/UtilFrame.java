@@ -8,7 +8,7 @@ public final class UtilFrame {
 
 	private static double width;
 	private static double height;
-	
+
 	private UtilFrame() {
 	}
 

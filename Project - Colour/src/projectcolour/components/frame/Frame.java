@@ -42,7 +42,7 @@ public final class Frame {
 	public static void updateContentPanePanel(JPanel panel){
 		frame.getContentPane().add(panel).revalidate();
 	}
-	
+
 	public static void repaintContentPanePanel(){
 		frame.getContentPane().repaint();
 	}

@@ -5,7 +5,7 @@ package projectcolour.util;
  */
 
 public final class UtilContentPane {
-	
+
 	private static int width = 800;
 	private static int height = 600;
 

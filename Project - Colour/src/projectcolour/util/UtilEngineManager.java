@@ -5,9 +5,9 @@ package projectcolour.util;
  */
 
 public final class UtilEngineManager {
-	
+
 	private static boolean state = true;
-	
+
 	private UtilEngineManager(){
 	}
 
@@ -16,9 +16,9 @@ public final class UtilEngineManager {
 	}
 
 	public static void setState(boolean State){
-		
+
 		state = State;
 		System.out.println((state == true ? "Initalising Engine..." : "Terminated Engine..."));
-		
+
 	}
 }

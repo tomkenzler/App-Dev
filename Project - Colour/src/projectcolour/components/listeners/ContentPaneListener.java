@@ -9,7 +9,7 @@ import projectcolour.util.UtilContentPane;
  */
 
 public class ContentPaneListener extends ComponentAdapter {
-	
+
 	@Override
 	public void componentResized(ComponentEvent e){
 		UtilContentPane.setWidth(e.getComponent().getBounds().width);

@@ -14,11 +14,11 @@ public class View extends JPanel {
 
 	@Override
 	public void paintComponent(Graphics g){
-		
+
 		/*	Prevent redrawning game if frame's state has changed	*/
 		if(UtilPaintManager.getRepaint() == false)
 			return;
-		
+
 		super.paintComponent(g);
 
 		Graphics2D render = (Graphics2D)g;
@@ -35,7 +35,7 @@ public class View extends JPanel {
 		new ViewWorld().render(render);
 		new ViewArcs().render(render);
 		new ViewDebug().render(render);
-		
+
 		UtilPaintManager.setRepaint(false);
 
 	}

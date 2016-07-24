@@ -5,9 +5,9 @@ package projectcolour.util;
  */
 
 public final class UtilPaintManager {
-	
+
 	private static boolean repaint;
-	
+
 	private UtilPaintManager(){
 	}
 
