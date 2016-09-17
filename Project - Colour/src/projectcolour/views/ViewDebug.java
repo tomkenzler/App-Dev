@@ -13,8 +13,6 @@ public class ViewDebug extends JPanel {
 
 	public void render(Graphics2D render){
 
-		super.paintComponent(render);
-
 		render.setColor(Color.GREEN);
 		render.drawString("Debug:", 0, 10);
 		render.drawString("FPS:" + UtilFPSManager.getFPS(), 0, 25);

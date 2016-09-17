@@ -33,6 +33,7 @@ public final class Frame {
 
 		frame.pack();
 		frame.setLocationRelativeTo(null);
+		frame.setIgnoreRepaint(true);
 		frame.setVisible(true);
 
 		System.out.println("Initialised Frame...");
