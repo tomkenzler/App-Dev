@@ -12,7 +12,7 @@ public final class UtilFPSManager {
 	private static long afterRender;
 	private static long timeElapsed;
 	private static long beforeRender;
-	private static final int desiredFPS = 60;
+	private static final int desiredFPS = 120;
 
 	private UtilFPSManager(){
 	}

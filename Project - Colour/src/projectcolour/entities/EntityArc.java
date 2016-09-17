@@ -9,19 +9,20 @@ import java.awt.Stroke;
 
 public class EntityArc {
 
-	private float	x;
-	private float	y;
-	private float	rotation;
-	private float	rotationSpeed;
+	private float x;
+	private float y;
+	private float rotation;
+	private float rotationSpeed;
 	private boolean rotationClockwise;
-	private float	width;
-	private float	height;
-	private float	startAngle;
-	private float	endAngle;
-	private Color	colour;
-	private Stroke	stroke;
+	private float width;
+	private float height;
+	private float startAngle;
+	private float endAngle;
+	private Color colour;
+	private Stroke stroke;
+	private int opacity;
 
-	public EntityArc(float X, float Y, float Rotation, float RotationSpeed, boolean RotationClockwise, float Width, float Height, float StartAngle, float EndAngle, Color Colour, Stroke Stroke){
+	public EntityArc(float X, float Y, float Rotation, float RotationSpeed, boolean RotationClockwise, float Width, float Height, float StartAngle, float EndAngle, Color Colour, int Opacity, Stroke Stroke){
 		x = X;
 		y = Y;
 		rotation = Rotation;
@@ -32,6 +33,7 @@ public class EntityArc {
 		startAngle = StartAngle;
 		endAngle = EndAngle;
 		colour = Colour;
+		opacity = Opacity;
 		stroke = Stroke;
 	}
 
@@ -113,6 +115,14 @@ public class EntityArc {
 
 	public void setColour(Color Colour){
 		colour = Colour;
+	}
+
+	public int getOpacity(){
+		return opacity;
+	}
+
+	public void setOpacity(int Opacity){
+		opacity = Opacity;
 	}
 
 	public Stroke getStroke(){

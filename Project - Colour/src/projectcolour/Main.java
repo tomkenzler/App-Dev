@@ -5,8 +5,8 @@ import projectcolour.util.UtilFPSManager;
 import projectcolour.util.UtilArcManager;
 import projectcolour.util.UtilEngineManager;
 import projectcolour.components.frame.Frame;
-import projectcolour.threads.ThreadRender;
 import projectcolour.threads.ThreadGenerateArcs;
+import projectcolour.util.UtilColourManager;
 
 /**
  * @author Tom
@@ -21,7 +21,7 @@ public class Main {
 	public Main(){
 
 		initFrame();
-		initArcs();
+		initColours();
 		initRender();
 		initEngine();
 
@@ -34,13 +34,14 @@ public class Main {
 
 	}
 
-	private void initArcs(){
-		UtilArcManager.init();
+	private void initColours(){
+		UtilColourManager.init();
 	}
 
 	private void initRender(){
-		new ThreadRender();
+
 		new ThreadGenerateArcs();
+
 	}
 
 	private void initEngine(){
@@ -48,18 +49,21 @@ public class Main {
 		while(UtilEngineManager.getState()){
 			try {
 
-				/*	Set time before render	*/
+				/*	Set time before render */
 				UtilFPSManager.setBeforeRender(System.currentTimeMillis());
 
-				/*	Update arc logic	*/
+				/*	Update arc logic */
 				UtilArcManager.updateArcs();
 
-				/*	Make thread sleep to ensure smooth rendering	*/
+				/*	Make thread sleep to ensure smooth rendering */
 				Thread.sleep(UtilFPSManager.getNextTick());
 
-				/*	Set time after render and calculate FPS	*/
+				/*	Set time after render and calculate FPS */
 				UtilFPSManager.setAfterRender(System.currentTimeMillis());
 				UtilFPSManager.calculateFPS();
+
+				/*	Refresh Game Screen */
+				Frame.repaintContentPanePanel();
 
 			} catch (Exception e){
 				System.out.println("Error in Engine:" + e.getMessage());
