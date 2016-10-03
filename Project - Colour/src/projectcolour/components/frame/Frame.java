@@ -3,8 +3,11 @@ package projectcolour.components.frame;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import projectcolour.util.UtilContentPane;
-import projectcolour.components.listeners.*;
+import projectcolour.util.display.UtilContentPane;
+import projectcolour.components.listeners.hardware.KeyListener;
+import projectcolour.components.listeners.display.FrameListener;
+import projectcolour.components.listeners.hardware.MouseListener;
+import projectcolour.components.listeners.display.ContentPaneListener;
 
 /**
  * @author Tom
@@ -18,8 +21,6 @@ public final class Frame {
 	}
 
 	public static void init(){
-
-		System.out.println("Initialing Frame...");
 
 		frame.setTitle("Project - Colour");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,8 +36,6 @@ public final class Frame {
 		frame.setLocationRelativeTo(null);
 		frame.setIgnoreRepaint(true);
 		frame.setVisible(true);
-
-		System.out.println("Initialised Frame...");
 
 	}
 

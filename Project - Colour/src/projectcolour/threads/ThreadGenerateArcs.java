@@ -1,6 +1,9 @@
 package projectcolour.threads;
 
-import projectcolour.util.UtilArcManager;
+import projectcolour.controllers.ArcController;
+import projectcolour.controllers.DebugController;
+import projectcolour.util.player.UtilPlayerMovement;
+import static projectcolour.util.global_properties.UtilGlobalProperties.*;
 
 /**
  * @author Tom
@@ -21,10 +24,28 @@ public class ThreadGenerateArcs implements Runnable {
 
 		while(true){
 			try {
-				UtilArcManager.generateArc();
-				Thread.sleep(2000);
+
+				if(ArcController.getRemainingArcs() == 0){
+					
+					ARC_WAVE_DIFFICULTLY++;
+					Thread.sleep(ARC_WAVE_INTERVAL);
+					for(int i = 0; i < ARC_WAVE_SIZE; i++){
+
+						if(i >= ARC_WAVE_UNLOCK_CONTROLS)
+							UtilPlayerMovement.setEnabled(true);
+
+						if(ArcController.getReset() == true){
+							ArcController.setReset(false);
+							break;
+						}
+
+						ArcController.generateArc();
+						Thread.sleep(ARC_SPAWN_INTERVAL);
+
+					}
+				}
 			} catch(Exception e){
-				e.getMessage();
+				DebugController.addConsoleMessage("Error in ThreadGenerateArcs:", e.getMessage());
 			}
 		}
 	}

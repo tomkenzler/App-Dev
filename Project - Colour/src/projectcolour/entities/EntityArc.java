@@ -2,6 +2,7 @@ package projectcolour.entities;
 
 import java.awt.Color;
 import java.awt.Stroke;
+import java.awt.BasicStroke;
 
 /**
  * @author Tom
@@ -9,20 +10,21 @@ import java.awt.Stroke;
 
 public class EntityArc {
 
-	private float x;
-	private float y;
+	private int x;
+	private int y;
 	private float rotation;
 	private float rotationSpeed;
 	private boolean rotationClockwise;
-	private float width;
-	private float height;
-	private float startAngle;
-	private float endAngle;
+	private int width;
+	private int height;
+	private int startAngle;
+	private int endAngle;
 	private Color colour;
+	private int strokeWidth;
 	private Stroke stroke;
 	private int opacity;
 
-	public EntityArc(float X, float Y, float Rotation, float RotationSpeed, boolean RotationClockwise, float Width, float Height, float StartAngle, float EndAngle, Color Colour, int Opacity, Stroke Stroke){
+	public EntityArc(int X, int Y, float Rotation, float RotationSpeed, boolean RotationClockwise, int Width, int Height, int StartAngle, int EndAngle, Color Colour, int Opacity, int StrokeWidth){
 		x = X;
 		y = Y;
 		rotation = Rotation;
@@ -34,22 +36,23 @@ public class EntityArc {
 		endAngle = EndAngle;
 		colour = Colour;
 		opacity = Opacity;
-		stroke = Stroke;
+		stroke = new BasicStroke(StrokeWidth);
+		strokeWidth = StrokeWidth;
 	}
 
-	public float getX(){
+	public int getX(){
 		return x;
 	}
 
-	public void setX(float X){
+	public void setX(int X){
 		x = X;
 	}
 
-	public float getY(){
+	public int getY(){
 		return y;
 	}
 
-	public void setY(float Y){
+	public void setY(int Y){
 		y = Y;
 	}
 
@@ -77,35 +80,35 @@ public class EntityArc {
 		rotationClockwise = RotationClockwise;
 	}
 
-	public float getWidth(){
+	public int getWidth(){
 		return width;
 	}
 
-	public void setWidth(float Width){
+	public void setWidth(int Width){
 		width = Width;
 	}
 
-	public float getHeight(){
+	public int getHeight(){
 		return height;
 	}
 
-	public void setHeight(float Height){
+	public void setHeight(int Height){
 		height = Height;
 	}
 
-	public float getStartAngle(){
+	public int getStartAngle(){
 		return startAngle;
 	}
 
-	public void setStartAngle(float StartAngle){
+	public void setStartAngle(int StartAngle){
 		startAngle = StartAngle;
 	}
 
-	public float getEndAngle(){
+	public int getEndAngle(){
 		return endAngle;
 	}
 
-	public void setEndAngle(float EndAngle){
+	public void setEndAngle(int EndAngle){
 		endAngle = EndAngle;
 	}
 
@@ -123,6 +126,14 @@ public class EntityArc {
 
 	public void setOpacity(int Opacity){
 		opacity = Opacity;
+	}
+
+	public int getStrokeWidth(){
+		return strokeWidth;
+	}
+
+	public void setStrokeWidth(int StrokeWidth){
+		strokeWidth = StrokeWidth;
 	}
 
 	public Stroke getStroke(){
